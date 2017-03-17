@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ahorcado;
 
-/**
- *
- * @author estudiantes
- */
 public class TableroG extends javax.swing.JFrame {
-
+    Tablero miTablero=new Tablero();
+    
   
    /**
      * Creates new form TableroG
@@ -34,19 +26,23 @@ public class TableroG extends javax.swing.JFrame {
         letra0 = new javax.swing.JTextField();
         letra2 = new javax.swing.JTextField();
         letra1 = new javax.swing.JTextField();
-        letra4 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        letra3 = new javax.swing.JTextField();
+        CuadroT = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("AHORCADO");
 
         Seleccionar.setText("Seleccionar");
+        Seleccionar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SeleccionarMouseClicked(evt);
+            }
+        });
 
-        jTextField6.setText("jTextField1");
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        CuadroT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                CuadroTActionPerformed(evt);
             }
         });
 
@@ -55,27 +51,26 @@ public class TableroG extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(VocalSel, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(Seleccionar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(letra0, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(letra1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(letra2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(letra4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(CuadroT, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(84, 84, 84)
+                            .addComponent(VocalSel, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(43, 43, 43)
+                            .addComponent(Seleccionar))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(152, 152, 152)
+                            .addComponent(jLabel1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(letra0, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(letra1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(letra2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(letra3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -90,23 +85,70 @@ public class TableroG extends javax.swing.JFrame {
                             .addComponent(letra0, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(letra2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(letra1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(letra4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(letra3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(VocalSel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Seleccionar))))
+                .addGap(18, 18, 18)
+                .addComponent(CuadroT, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void CuadroTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuadroTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_CuadroTActionPerformed
+
+    private void SeleccionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeleccionarMouseClicked
+
+for(int i=0;i<3;i++){
+    if(miTablero.letra[i].equals(VocalSel.getText())){
+        switch(i){
+            case 0:{
+                letra0.setText(miTablero.letra[0]);
+                miTablero.vidas++;
+                CuadroT.setText("CORRECTO!");
+               
+            }break;
+              case 1:{
+                letra1.setText(miTablero.letra[0]);
+                miTablero.vidas++;
+                CuadroT.setText("CORRECTO!");
+               
+            }break;
+            
+            
+            case 2:{
+                letra2.setText(miTablero.letra[0]);
+                miTablero.vidas++;
+                CuadroT.setText("CORRECTO!");
+            
+            }break;
+            
+            case 3:{
+                letra3.setText(miTablero.letra[0]);
+                miTablero.vidas++;
+                CuadroT.setText("CORRECTO!");
+               
+            }break;
+                                                                                                                                                                                     
+            
+            
+        }
+        
+    }
+         }
+    
+    {
+    
+    }    
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_SeleccionarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -144,13 +186,13 @@ public class TableroG extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CuadroT;
     private javax.swing.JButton Seleccionar;
     private javax.swing.JTextField VocalSel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField letra0;
     private javax.swing.JTextField letra1;
     private javax.swing.JTextField letra2;
-    private javax.swing.JTextField letra4;
+    private javax.swing.JTextField letra3;
     // End of variables declaration//GEN-END:variables
 }

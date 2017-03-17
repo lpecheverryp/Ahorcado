@@ -5,6 +5,9 @@
  */
 package ahorcado;
 
+import javax.swing.JTextField;
+
+
 /**
  *
  * @author estudiantes
@@ -13,6 +16,7 @@ public class Tablero {
     String letra[] = new String[1];
     int vidas;
     int Contador;
+    int elegir;
 
     
     public void LetrasP(){
@@ -23,6 +27,10 @@ public class Tablero {
     
     
   
+    }
+
+    void getText(JTextField VocalSel) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
