@@ -9,20 +9,16 @@ package ahorcado;
  *
  * @author estudiantes
  */
-public class Tablero {
-    String letra[] = new String[1];
-    int vidas;
-    int Contador;
+public class Ahorcado {
 
-    
-    public void LetrasP(){
-    letra[0]="v";
-    letra[1]="i";
-    letra[2]="d";
-    letra[3]="a";
-    
-    
-  
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+TableroG miTableroG= new TableroG();
+
+ miTableroG.setVisible(true);// TODO code application logic here
     }
     
 }
