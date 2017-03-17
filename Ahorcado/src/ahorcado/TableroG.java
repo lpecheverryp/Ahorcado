@@ -1,4 +1,4 @@
-package ahorcado;
+ orcado;
 
 public class TableroG extends javax.swing.JFrame {
     Tablero miTablero=new Tablero();
@@ -9,6 +9,7 @@ public class TableroG extends javax.swing.JFrame {
      */
     public TableroG() {
         initComponents();
+      miTablero.LetrasP();
     }
 
     /**
@@ -104,7 +105,7 @@ public class TableroG extends javax.swing.JFrame {
     }//GEN-LAST:event_CuadroTActionPerformed
 
     private void SeleccionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeleccionarMouseClicked
-
+miTablero.vidas--;
 for(int i=0;i<3;i++){
     if(miTablero.letra[i].equals(VocalSel.getText())){
         switch(i){
@@ -115,7 +116,7 @@ for(int i=0;i<3;i++){
                
             }break;
               case 1:{
-                letra1.setText(miTablero.letra[0]);
+                letra1.setText(miTablero.letra[1]);
                 miTablero.vidas++;
                 CuadroT.setText("CORRECTO!");
                
@@ -123,14 +124,14 @@ for(int i=0;i<3;i++){
             
             
             case 2:{
-                letra2.setText(miTablero.letra[0]);
+                letra2.setText(miTablero.letra[2]);
                 miTablero.vidas++;
                 CuadroT.setText("CORRECTO!");
             
             }break;
             
             case 3:{
-                letra3.setText(miTablero.letra[0]);
+                letra3.setText(miTablero.letra[3                                                ]);
                 miTablero.vidas++;
                 CuadroT.setText("CORRECTO!");
                
@@ -141,11 +142,9 @@ for(int i=0;i<3;i++){
         }
         
     }
-         }
+}
     
-    {
-    
-    }    
+      
 
 // TODO add your handling code here:
     }//GEN-LAST:event_SeleccionarMouseClicked
